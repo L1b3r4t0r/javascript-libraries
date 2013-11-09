@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<manifest><!-- start manifest -->
+    <author></author>
+    <contributors></contributors>
+    <description></description>
+    <#>this is a comment</#>
+    <url>will be treated as a link</url>
+    <binaries></binaries>
+    <comands></comands>
+    <version></version>
+    <giturl></giturl>
+</manifest><!-- end manifest -->
