@@ -1,4 +1,4 @@
-//(c) matheus 2013
+//© matheus 2013
 function ajf() {
     var xmlhttp;
     this.ajax = ajax;
