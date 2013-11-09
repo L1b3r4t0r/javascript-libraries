@@ -1,5 +1,5 @@
 //(c) matheus 2013
-(function ajf() {
+function ajf() {
     var xmlhttp;
     this.ajax = ajax;
     function ajax(url, callback, data, method) {
@@ -17,7 +17,7 @@
         xmlhttp.open(res, url + "?" + data, true);
         xmlhttp.send();
     };
-});
+};
 function makecall(url,callback){
     var instance = new ajf.ajax();
 };
