@@ -1,24 +1,42 @@
-//(c) matheus 2013
+//© matheus 2013
 function ajf() {
     var xmlhttp;
     this.ajax = ajax;
+
     function ajax(url, callback, data, method) {
-        if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        };
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var ev = new Function(callback);
-                ev();
+        if (method == "get" || method == "GET") {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var ev = new Function(callback);
+                    ev();
+                };
             };
+            var res = method.toUpperCase();
+            xmlhttp.open(res, url + "?" + data, true);
+            xmlhttp.send();
+        }else{
+             if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var ev = new Function(callback);
+                    ev();
+                };
+            };
+            var res = method.toUpperCase();
+            xmlhttp.open(res, url, data, true);
+            xmlhttp.send();
         };
-        var res = method.toUpperCase();
-        xmlhttp.open(res, url + "?" + data, true);
-        xmlhttp.send();
     };
 };
-function makecall(url,callback){
-    var instance = new ajf.ajax();
-};
+    function mkinst(url, callback, data, method) {
+        var instance = new ajf.ajax(url, callback, data, method);
+    };
